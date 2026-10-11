@@ -10,6 +10,10 @@ app.use(cors());
 app.use(express.json());
 
 
+// Importação das rotas
+const usuarioRoutes = require('./routes/usuarioRoutes');
+app.use('/api/v1/usuarios', usuarioRoutes);
+
 
 // Rota de teste inicial para a API (seguindo o prefixo v1)
 app.get('/api/v1/health', (req, res) => {

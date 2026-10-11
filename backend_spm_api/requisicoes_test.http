@@ -1,0 +1,50 @@
+@baseUrl = http://localhost:3000/api/v1
+
+### 1. Verificar Saúde da API
+GET {{baseUrl}}/health
+
+### ==========================================
+### MÓDULO: USUÁRIOS
+### ==========================================
+
+### 2. Criar Novo Usuário (Paciente)
+POST {{baseUrl}}/usuarios
+Content-Type: application/json
+
+{
+  "nome": "Maria Silva",
+  "email": "maria.silva@email.com",
+  "senha_hash": "hash_senha_segura_123",
+  "telefone": "81999998888",
+  "tipo_usuario": "PACIENTE"
+}
+
+### 3. Criar Novo Usuário (Profissional)
+POST {{baseUrl}}/usuarios
+Content-Type: application/json
+
+{
+  "nome": "Dr. Carlos Souza",
+  "email": "carlos.souza@medico.com",
+  "senha_hash": "hash_senha_segura_456",
+  "telefone": "81988887777",
+  "tipo_usuario": "PROFISSIONAL"
+}
+
+### 4. Listar Todos os Usuários
+GET {{baseUrl}}/usuarios
+
+### 5. Buscar Usuário por ID (Substitua 1 pelo ID desejado)
+GET {{baseUrl}}/usuarios/1
+
+### 6. Atualizar Usuário por ID (Substitua 1 pelo ID desejado)
+PUT {{baseUrl}}/usuarios/1
+Content-Type: application/json
+
+{
+  "nome": "Maria Silva Santos",
+  "telefone": "81977776666"
+}
+
+### 7. Deletar Usuário por ID (Substitua 1 pelo ID desejado)
+DELETE {{baseUrl}}/usuarios/1
