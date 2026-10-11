@@ -48,3 +48,56 @@ Content-Type: application/json
 
 ### 7. Deletar Usuário por ID (Substitua 1 pelo ID desejado)
 DELETE {{baseUrl}}/usuarios/1
+
+
+
+
+
+### ========================================================================================================
+### ========================================================================================================
+### ========================================================================================================
+
+
+
+
+
+
+### ==========================================
+### MÓDULO: CLÍNICAS
+### ==========================================
+
+### 8. Cadastrar Nova Clínica
+POST {{baseUrl}}/clinicas
+Content-Type: application/json
+
+{
+  "nome": "Clínica Saúde Central",
+  "cnpj": "12.345.678/0001-99",
+  "telefone": "8133334444",
+  "email": "contato@saudecentral.com",
+  "logradouro": "Av. Boa Viagem",
+  "numero": "1000",
+  "bairro": "Boa Viagem",
+  "cidade": "Recife",
+  "estado": "Pernambuco",
+  "uf": "PE"
+}
+
+### 9. Listar Todas as Clínicas
+GET {{baseUrl}}/clinicas
+
+### 10. Buscar Clínica por ID
+GET {{baseUrl}}/clinicas/1
+
+
+### 11. Atualizar Clínica por ID (Substitua 1 pelo ID desejado)
+PUT {{baseUrl}}/clinicas/1
+Content-Type: application/json
+
+{
+  "nome": "Clínica Saúde Central Recife",
+  "telefone": "8133335555"
+}
+
+### 12. Deletar Clínica por ID (Substitua 1 pelo ID desejado)
+DELETE {{baseUrl}}/clinicas/1

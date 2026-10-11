@@ -12,7 +12,12 @@ app.use(express.json());
 
 // Importação das rotas
 const usuarioRoutes = require('./routes/usuarioRoutes');
+const clinicaRoutes = require('./routes/clinicaRoutes');
+
+
 app.use('/api/v1/usuarios', usuarioRoutes);
+app.use('/api/v1/clinicas', clinicaRoutes);
+
 
 
 // Rota de teste inicial para a API (seguindo o prefixo v1)
