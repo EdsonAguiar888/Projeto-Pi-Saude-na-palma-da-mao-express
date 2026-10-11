@@ -239,3 +239,68 @@ Content-Type: application/json
 ### 27. Deletar Profissional por ID
 DELETE {{baseUrl}}/profissionais/1
 
+
+
+
+
+
+
+### ========================================================================================================
+### ========================================================================================================
+### ========================================================================================================
+
+
+
+
+
+
+### ==========================================
+### MÓDULO: PROFISSIONAL_CLÍNICA
+### ==========================================
+
+### 28. Vincular Profissional à Clínica
+POST {{baseUrl}}/profissional-clinica
+Content-Type: application/json
+
+{
+  "id_profissional": 1,
+  "id_clinica": 1,
+  "ativo": true
+}
+
+### 29. Listar Vínculos Profissional-Clínica
+GET {{baseUrl}}/profissional-clinica
+
+### 30. Buscar Vínculo por ID
+GET {{baseUrl}}/profissional-clinica/1
+
+### 31. Atualizar Vínculo por ID
+PUT {{baseUrl}}/profissional-clinica/1
+Content-Type: application/json
+
+{
+  "ativo": false
+}
+
+### 32. Deletar Vínculo por ID
+DELETE {{baseUrl}}/profissional-clinica/1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

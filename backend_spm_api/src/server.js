@@ -17,6 +17,8 @@ const especialidadeRoutes = require('./routes/especialidadeRoutes');
 const pacienteRoutes = require('./routes/pacienteRoutes');
 const profissionalRoutes = require('./routes/profissionalRoutes');
 
+const profissionalClinicaRoutes = require('./routes/profissionalClinicaRoutes');
+
 
 app.use('/api/v1/usuarios', usuarioRoutes);
 app.use('/api/v1/clinicas', clinicaRoutes);
@@ -24,6 +26,7 @@ app.use('/api/v1/especialidades', especialidadeRoutes);
 app.use('/api/v1/pacientes', pacienteRoutes);
 app.use('/api/v1/profissionais', profissionalRoutes);
 
+app.use('/api/v1/profissional-clinica', profissionalClinicaRoutes);
 
 
 // Rota de teste inicial para a API (seguindo o prefixo v1)
