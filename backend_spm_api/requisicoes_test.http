@@ -101,3 +101,67 @@ Content-Type: application/json
 
 ### 12. Deletar Clínica por ID (Substitua 1 pelo ID desejado)
 DELETE {{baseUrl}}/clinicas/1
+
+
+
+
+### ========================================================================================================
+### ========================================================================================================
+### ========================================================================================================
+
+
+
+
+
+
+
+### ==========================================
+### MÓDULO: ESPECIALIDADES
+### ==========================================
+
+### 13. Cadastrar Nova Especialidade
+POST {{baseUrl}}/especialidades
+Content-Type: application/json
+
+{
+  "nome": "Cardiologia",
+  "descricao": "Especialidade médica que cuida da saúde do coração e do sistema circulatório."
+}
+
+### 14. Listar Todas as Especialidades
+GET {{baseUrl}}/especialidades
+
+### 15. Buscar Especialidade por ID
+GET {{baseUrl}}/especialidades/1
+
+### 16. Atualizar Especialidade por ID
+PUT {{baseUrl}}/especialidades/1
+Content-Type: application/json
+
+{
+  "descricao": "Especialidade focada em cardiologia clínica e preventiva."
+}
+
+### 17. Deletar Especialidade por ID
+DELETE {{baseUrl}}/especialidades/1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
