@@ -149,6 +149,46 @@ DELETE {{baseUrl}}/especialidades/1
 
 
 
+### ========================================================================================================
+### ========================================================================================================
+### ========================================================================================================
+
+
+
+
+
+
+### ==========================================
+### MÓDULO: PACIENTES
+### ==========================================
+
+### 18. Cadastrar Novo Paciente (Associe um id_usuario existente)
+POST {{baseUrl}}/pacientes
+Content-Type: application/json
+
+{
+  "id_usuario": 2,
+  "cpf": "222.456.789-00",
+  "data_nascimento": "1995-05-15",
+  "sexo": "F"
+}
+
+### 19. Listar Todos os Pacientes
+GET {{baseUrl}}/pacientes
+
+### 20. Buscar Paciente por ID
+GET {{baseUrl}}/pacientes/1
+
+### 21. Atualizar Paciente por ID
+PUT {{baseUrl}}/pacientes/1
+Content-Type: application/json
+
+{
+  "sexo": "M"
+}
+
+### 22. Deletar Paciente por ID
+DELETE {{baseUrl}}/pacientes/1
 
 
 
@@ -156,12 +196,46 @@ DELETE {{baseUrl}}/especialidades/1
 
 
 
+### ========================================================================================================
+### ========================================================================================================
+### ========================================================================================================
 
 
 
 
 
 
+### ==========================================
+### MÓDULO: PROFISSIONAIS
+### ==========================================
 
+### 23. Cadastrar Novo Profissional (Associe um id_usuario existente)
+POST {{baseUrl}}/profissionais
+Content-Type: application/json
 
+{
+  "id_usuario": 2,
+  "cpf": "987.654.321-11",
+  "conselho": "CRM",
+  "registro_profissional": "123456-PE",
+  "uf_registro": "PE",
+  "ativo": true
+}
+
+### 24. Listar Todos os Profissionais
+GET {{baseUrl}}/profissionais
+
+### 25. Buscar Profissional por ID
+GET {{baseUrl}}/profissionais/1
+
+### 26. Atualizar Profissional por ID
+PUT {{baseUrl}}/profissionais/1
+Content-Type: application/json
+
+{
+  "ativo": true
+}
+
+### 27. Deletar Profissional por ID
+DELETE {{baseUrl}}/profissionais/1
 

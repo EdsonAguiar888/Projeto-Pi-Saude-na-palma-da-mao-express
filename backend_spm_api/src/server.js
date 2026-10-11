@@ -14,11 +14,15 @@ app.use(express.json());
 const usuarioRoutes = require('./routes/usuarioRoutes');
 const clinicaRoutes = require('./routes/clinicaRoutes');
 const especialidadeRoutes = require('./routes/especialidadeRoutes');
+const pacienteRoutes = require('./routes/pacienteRoutes');
+const profissionalRoutes = require('./routes/profissionalRoutes');
 
 
 app.use('/api/v1/usuarios', usuarioRoutes);
 app.use('/api/v1/clinicas', clinicaRoutes);
 app.use('/api/v1/especialidades', especialidadeRoutes);
+app.use('/api/v1/pacientes', pacienteRoutes);
+app.use('/api/v1/profissionais', profissionalRoutes);
 
 
 
