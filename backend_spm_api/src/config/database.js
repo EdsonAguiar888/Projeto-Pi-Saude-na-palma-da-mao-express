@@ -1,4 +1,14 @@
 const { DataSource } = require('typeorm');
+const UsuarioSchema = require('../entities/Usuario');
+const PacienteSchema = require('../entities/Paciente');
+const ProfissionalSchema = require('../entities/Profissional');
+const ClinicaSchema = require('../entities/Clinica');
+const EspecialidadeSchema = require('../entities/Especialidade');
+const ProfissionalClinicaSchema = require('../entities/ProfissionalClinica');
+const ProfissionalEspecialidadeSchema = require('../entities/ProfissionalEspecialidade');
+const ClinicaEspecSchema = require('../entities/ClinicaEspec');
+const DisponibilidadeSchema = require('../entities/Disponibilidade');
+const AgendamentoSchema = require('../entities/Agendamento');
 require('dotenv').config();
 
 const AppDataSource = new DataSource({
@@ -12,6 +22,16 @@ const AppDataSource = new DataSource({
   logging: false,
   entities: [
     // Vamos registrar as entidades aqui conforme formos criando
+    UsuarioSchema,
+    PacienteSchema,
+    ProfissionalSchema,
+    ClinicaSchema,
+    EspecialidadeSchema,
+    ProfissionalClinicaSchema,
+    ProfissionalEspecialidadeSchema,
+    ClinicaEspecSchema,
+    DisponibilidadeSchema,
+    AgendamentoSchema,
   ],
   subscribers: [],
   migrations: [],
