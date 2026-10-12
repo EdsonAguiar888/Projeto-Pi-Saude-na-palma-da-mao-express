@@ -291,6 +291,9 @@ DELETE {{baseUrl}}/profissional-clinica/1
 
 
 
+### ========================================================================================================
+### ========================================================================================================
+### ========================================================================================================
 
 
 
@@ -298,6 +301,27 @@ DELETE {{baseUrl}}/profissional-clinica/1
 
 
 
+### ==========================================
+### MÓDULO: PROFISSIONAL_ESPECIALIDADE
+### ==========================================
+
+### 33. Associar Especialidade ao Profissional
+POST {{baseUrl}}/profissional-especialidade
+Content-Type: application/json
+
+{
+  "id_profissional": 1,
+  "id_especialidade": 1
+}
+
+### 34. Listar Associações Profissional-Especialidade
+GET {{baseUrl}}/profissional-especialidade
+
+### 35. Buscar Associação por IDs compostos (:idProfissional/:idEspecialidade)
+GET {{baseUrl}}/profissional-especialidade/1/1
+
+### 36. Deletar Associação por IDs compostos
+DELETE {{baseUrl}}/profissional-especialidade/1/1
 
 
 
