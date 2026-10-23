@@ -1,0 +1,948 @@
+crie para mim um contrato de api baseado nesse rest.http:
+
+@baseUrl = http://localhost:3000/api/v1
+
+### 1. Verificar Saúde da API
+GET {{baseUrl}}/health
+
+### ==========================================
+### MÓDULO: USUÁRIOS
+### ==========================================
+
+### 2. Criar Novo Usuário (Paciente)
+POST {{baseUrl}}/usuarios
+Content-Type: application/json
+
+{
+  "nome": "Maria Silva",
+  "email": "maria.silva@email.com",
+  "senha_hash": "hash_senha_segura_123",
+  "telefone": "81999998888",
+  "tipo_usuario": "PACIENTE"
+}
+
+### 3. Criar Novo Usuário (Profissional)
+POST {{baseUrl}}/usuarios
+Content-Type: application/json
+
+{
+  "nome": "Dr. Carlos Souza",
+  "email": "carlos.souza@medico.com",
+  "senha_hash": "hash_senha_segura_456",
+  "telefone": "81988887777",
+  "tipo_usuario": "PROFISSIONAL"
+}
+
+### 4. Listar Todos os Usuários
+GET {{baseUrl}}/usuarios
+
+RETORNO
+HTTP/1.1 200 OK
+
+[
+  {
+    "id_usuario": "2",
+    "nome": "Dr. Carlos Souza",
+    "email": "carlos.souza@medico.com",
+    "senha_hash": "hash_senha_segura_456",
+    "telefone": "81988887777",
+    "tipo_usuario": "PROFISSIONAL",
+    "ativo": true,
+    "criado_em": "2026-10-12T02:01:17.005Z"
+  },
+  {
+    "id_usuario": "1",
+    "nome": "Maria Silva Santos",
+    "email": "maria.silva@email.com",
+    "senha_hash": "hash_senha_segura_123",
+    "telefone": "81977776666",
+    "tipo_usuario": "PACIENTE",
+    "ativo": true,
+    "criado_em": "2026-10-12T02:01:07.844Z"
+  }
+]
+
+### 5. Buscar Usuário por ID (Substitua 1 pelo ID desejado)
+GET {{baseUrl}}/usuarios/1
+
+RETORNO
+HTTP/1.1 200 OK
+
+{
+  "id_usuario": "1",
+  "nome": "Maria Silva Santos",
+  "email": "maria.silva@email.com",
+  "senha_hash": "hash_senha_segura_123",
+  "telefone": "81977776666",
+  "tipo_usuario": "PACIENTE",
+  "ativo": true,
+  "criado_em": "2026-10-12T02:01:07.844Z"
+}
+
+### 6. Atualizar Usuário por ID (Substitua 1 pelo ID desejado)
+PUT {{baseUrl}}/usuarios/1
+Content-Type: application/json
+
+{
+  "nome": "Maria Silva Santos",
+  "telefone": "81977776666"
+}
+
+### 7. Deletar Usuário por ID (Substitua 1 pelo ID desejado)
+DELETE {{baseUrl}}/usuarios/1
+
+
+
+
+
+### ========================================================================================================
+### ========================================================================================================
+### ========================================================================================================
+
+
+
+
+
+
+### ==========================================
+### MÓDULO: CLÍNICAS
+### ==========================================
+
+### 8. Cadastrar Nova Clínica
+POST {{baseUrl}}/clinicas
+Content-Type: application/json
+
+{
+  "nome": "Clínica Saúde Central",
+  "cnpj": "12.345.678/0001-99",
+  "telefone": "8133334444",
+  "email": "contato@saudecentral.com",
+  "logradouro": "Av. Boa Viagem",
+  "numero": "1000",
+  "bairro": "Boa Viagem",
+  "cidade": "Recife",
+  "estado": "Pernambuco",
+  "uf": "PE"
+}
+
+### 9. Listar Todas as Clínicas
+GET {{baseUrl}}/clinicas
+
+RETORNO
+HTTP/1.1 200 OK
+
+[
+  {
+    "id_clinica": "1",
+    "nome": "Clínica Saúde Central Recife",
+    "cnpj": "12.345.678/0001-99",
+    "telefone": "8133335555",
+    "email": "contato@saudecentral.com",
+    "logradouro": "Av. Boa Viagem",
+    "numero": "1000",
+    "bairro": "Boa Viagem",
+    "cidade": "Recife",
+    "estado": "Pernambuco",
+    "uf": "PE",
+    "ativo": true
+  }
+]
+
+### 10. Buscar Clínica por ID
+GET {{baseUrl}}/clinicas/1
+
+RETORNO
+HTTP/1.1 200 OK
+
+{
+  "id_clinica": "1",
+  "nome": "Clínica Saúde Central Recife",
+  "cnpj": "12.345.678/0001-99",
+  "telefone": "8133335555",
+  "email": "contato@saudecentral.com",
+  "logradouro": "Av. Boa Viagem",
+  "numero": "1000",
+  "bairro": "Boa Viagem",
+  "cidade": "Recife",
+  "estado": "Pernambuco",
+  "uf": "PE",
+  "ativo": true
+}
+
+
+### 11. Atualizar Clínica por ID (Substitua 1 pelo ID desejado)
+PUT {{baseUrl}}/clinicas/1
+Content-Type: application/json
+
+{
+  "nome": "Clínica Saúde Central Recife",
+  "telefone": "8133335555"
+}
+
+### 12. Deletar Clínica por ID (Substitua 1 pelo ID desejado)
+DELETE {{baseUrl}}/clinicas/1
+
+
+
+
+### ========================================================================================================
+### ========================================================================================================
+### ========================================================================================================
+
+
+
+
+
+
+
+### ==========================================
+### MÓDULO: ESPECIALIDADES
+### ==========================================
+
+### 13. Cadastrar Nova Especialidade
+POST {{baseUrl}}/especialidades
+Content-Type: application/json
+
+{
+  "nome": "Pediatria",
+  "descricao": "Especialidade médica que cuida da saúde das crianças e do sistema circulatório."
+}
+
+### 14. Listar Todas as Especialidades
+GET {{baseUrl}}/especialidades
+
+RETORNO
+HTTP/1.1 200 OK
+
+[
+  {
+    "id_especialidade": "1",
+    "nome": "Cardiologia",
+    "descricao": "Especialidade focada em cardiologia clínica e preventiva.",
+    "ativo": true
+  }
+]
+
+### 15. Buscar Especialidade por ID
+GET {{baseUrl}}/especialidades/1
+
+RETORNO
+HTTP/1.1 200 OK
+
+{
+  "id_especialidade": "1",
+  "nome": "Cardiologia",
+  "descricao": "Especialidade focada em cardiologia clínica e preventiva.",
+  "ativo": true
+}
+
+### 16. Atualizar Especialidade por ID
+PUT {{baseUrl}}/especialidades/1
+Content-Type: application/json
+
+{
+  "descricao": "Especialidade focada em cardiologia clínica e preventiva."
+}
+
+### 17. Deletar Especialidade por ID
+DELETE {{baseUrl}}/especialidades/1
+
+
+
+
+
+### ========================================================================================================
+### ========================================================================================================
+### ========================================================================================================
+
+
+
+
+
+
+### ==========================================
+### MÓDULO: PACIENTES
+### ==========================================
+
+### 18. Cadastrar Novo Paciente (Associe um id_usuario existente)
+POST {{baseUrl}}/pacientes
+Content-Type: application/json
+
+{
+  "id_usuario": 2,
+  "cpf": "222.456.789-00",
+  "data_nascimento": "1995-05-15",
+  "sexo": "F"
+}
+
+### 19. Listar Todos os Pacientes
+GET {{baseUrl}}/pacientes
+
+RETORNO
+HTTP/1.1 200 OK
+
+[
+  {
+    "id_paciente": "1",
+    "id_usuario": "1",
+    "cpf": "123.456.789-00",
+    "data_nascimento": "1995-05-15",
+    "sexo": "M",
+    "observacoes": null,
+    "usuario": {
+      "id_usuario": "1",
+      "nome": "Maria Silva Santos",
+      "email": "maria.silva@email.com",
+      "senha_hash": "hash_senha_segura_123",
+      "telefone": "81977776666",
+      "tipo_usuario": "PACIENTE",
+      "ativo": true,
+      "criado_em": "2026-10-12T02:01:07.844Z"
+    }
+  }
+]
+
+### 20. Buscar Paciente por ID
+GET {{baseUrl}}/pacientes/1
+
+RETORNO
+HTTP/1.1 200 OK
+
+{
+  "id_paciente": "1",
+  "id_usuario": "1",
+  "cpf": "123.456.789-00",
+  "data_nascimento": "1995-05-15",
+  "sexo": "M",
+  "observacoes": null,
+  "usuario": {
+    "id_usuario": "1",
+    "nome": "Maria Silva Santos",
+    "email": "maria.silva@email.com",
+    "senha_hash": "hash_senha_segura_123",
+    "telefone": "81977776666",
+    "tipo_usuario": "PACIENTE",
+    "ativo": true,
+    "criado_em": "2026-10-12T02:01:07.844Z"
+  }
+}
+
+### 21. Atualizar Paciente por ID
+PUT {{baseUrl}}/pacientes/1
+Content-Type: application/json
+
+{
+  "sexo": "M"
+}
+
+### 22. Deletar Paciente por ID
+DELETE {{baseUrl}}/pacientes/1
+
+
+
+
+
+
+
+### ========================================================================================================
+### ========================================================================================================
+### ========================================================================================================
+
+
+
+
+
+
+### ==========================================
+### MÓDULO: PROFISSIONAIS
+### ==========================================
+
+### 23. Cadastrar Novo Profissional (Associe um id_usuario existente)
+POST {{baseUrl}}/profissionais
+Content-Type: application/json
+
+{
+  "id_usuario": 2,
+  "cpf": "987.654.321-11",
+  "conselho": "CRM",
+  "registro_profissional": "123456-PE",
+  "uf_registro": "PE",
+  "ativo": true
+}
+
+### 24. Listar Todos os Profissionais
+GET {{baseUrl}}/profissionais
+
+RETORNO
+HTTP/1.1 200 OK
+
+[
+  {
+    "id_profissional": "1",
+    "id_usuario": "2",
+    "cpf": "987.654.321-11",
+    "conselho": "CRM",
+    "registro_profissional": "123456-PE",
+    "uf_registro": "PE",
+    "ativo": true,
+    "usuario": {
+      "id_usuario": "2",
+      "nome": "Dr. Carlos Souza",
+      "email": "carlos.souza@medico.com",
+      "senha_hash": "hash_senha_segura_456",
+      "telefone": "81988887777",
+      "tipo_usuario": "PROFISSIONAL",
+      "ativo": true,
+      "criado_em": "2026-10-12T02:01:17.005Z"
+    }
+  }
+]
+
+### 25. Buscar Profissional por ID
+GET {{baseUrl}}/profissionais/1
+
+RETORNO
+HTTP/1.1 200 OK
+
+{
+  "id_profissional": "1",
+  "id_usuario": "2",
+  "cpf": "987.654.321-11",
+  "conselho": "CRM",
+  "registro_profissional": "123456-PE",
+  "uf_registro": "PE",
+  "ativo": true,
+  "usuario": {
+    "id_usuario": "2",
+    "nome": "Dr. Carlos Souza",
+    "email": "carlos.souza@medico.com",
+    "senha_hash": "hash_senha_segura_456",
+    "telefone": "81988887777",
+    "tipo_usuario": "PROFISSIONAL",
+    "ativo": true,
+    "criado_em": "2026-10-12T02:01:17.005Z"
+  }
+}
+
+### 26. Atualizar Profissional por ID
+PUT {{baseUrl}}/profissionais/1
+Content-Type: application/json
+
+{
+  "ativo": true
+}
+
+### 27. Deletar Profissional por ID
+DELETE {{baseUrl}}/profissionais/1
+
+
+
+
+
+
+
+### ========================================================================================================
+### ========================================================================================================
+### ========================================================================================================
+
+
+
+
+
+
+### ==========================================
+### MÓDULO: PROFISSIONAL_CLÍNICA
+### ==========================================
+
+### 28. Vincular Profissional à Clínica
+POST {{baseUrl}}/profissional-clinica
+Content-Type: application/json
+
+{
+  "id_profissional": 1,
+  "id_clinica": 1,
+  "ativo": true
+}
+
+### 29. Listar Vínculos Profissional-Clínica
+GET {{baseUrl}}/profissional-clinica
+
+RETORNO
+HTTP/1.1 200 OK
+
+[
+  {
+    "id_profissional_clinica": "1",
+    "id_profissional": "1",
+    "id_clinica": "1",
+    "ativo": false,
+    "profissional": {
+      "id_profissional": "1",
+      "id_usuario": "2",
+      "cpf": "987.654.321-11",
+      "conselho": "CRM",
+      "registro_profissional": "123456-PE",
+      "uf_registro": "PE",
+      "ativo": true
+    },
+    "clinica": {
+      "id_clinica": "1",
+      "nome": "Clínica Saúde Central Recife",
+      "cnpj": "12.345.678/0001-99",
+      "telefone": "8133335555",
+      "email": "contato@saudecentral.com",
+      "logradouro": "Av. Boa Viagem",
+      "numero": "1000",
+      "bairro": "Boa Viagem",
+      "cidade": "Recife",
+      "estado": "Pernambuco",
+      "uf": "PE",
+      "ativo": true
+    }
+  }
+]
+
+
+### 30. Buscar Vínculo por ID
+GET {{baseUrl}}/profissional-clinica/1
+
+RETORNO
+HTTP/1.1 200 OK
+
+{
+  "id_profissional_clinica": "1",
+  "id_profissional": "1",
+  "id_clinica": "1",
+  "ativo": false,
+  "profissional": {
+    "id_profissional": "1",
+    "id_usuario": "2",
+    "cpf": "987.654.321-11",
+    "conselho": "CRM",
+    "registro_profissional": "123456-PE",
+    "uf_registro": "PE",
+    "ativo": true
+  },
+  "clinica": {
+    "id_clinica": "1",
+    "nome": "Clínica Saúde Central Recife",
+    "cnpj": "12.345.678/0001-99",
+    "telefone": "8133335555",
+    "email": "contato@saudecentral.com",
+    "logradouro": "Av. Boa Viagem",
+    "numero": "1000",
+    "bairro": "Boa Viagem",
+    "cidade": "Recife",
+    "estado": "Pernambuco",
+    "uf": "PE",
+    "ativo": true
+  }
+}
+
+
+### 31. Atualizar Vínculo por ID
+PUT {{baseUrl}}/profissional-clinica/1
+Content-Type: application/json
+
+{
+  "ativo": false
+}
+
+### 32. Deletar Vínculo por ID
+DELETE {{baseUrl}}/profissional-clinica/1
+
+
+
+
+
+### ========================================================================================================
+### ========================================================================================================
+### ========================================================================================================
+
+
+
+
+
+
+### ==========================================
+### MÓDULO: PROFISSIONAL_ESPECIALIDADE
+### ==========================================
+
+### 33. Associar Especialidade ao Profissional
+POST {{baseUrl}}/profissional-especialidade
+Content-Type: application/json
+
+{
+  "id_profissional": 1,
+  "id_especialidade": 1
+}
+
+### 34. Listar Associações Profissional-Especialidade
+GET {{baseUrl}}/profissional-especialidade
+
+RETORNO
+HTTP/1.1 200 OK
+
+[
+  {
+    "id_profissional": "1",
+    "id_especialidade": "1",
+    "profissional": {
+      "id_profissional": "1",
+      "id_usuario": "2",
+      "cpf": "987.654.321-11",
+      "conselho": "CRM",
+      "registro_profissional": "123456-PE",
+      "uf_registro": "PE",
+      "ativo": true
+    },
+    "especialidade": {
+      "id_especialidade": "1",
+      "nome": "Cardiologia",
+      "descricao": "Especialidade focada em cardiologia clínica e preventiva.",
+      "ativo": true
+    }
+  }
+]
+
+
+### 35. Buscar Associação por IDs compostos (:idProfissional/:idEspecialidade)
+GET {{baseUrl}}/profissional-especialidade/1/1
+
+RETORNO
+HTTP/1.1 200 OK
+
+{
+  "id_profissional": "1",
+  "id_especialidade": "1",
+  "profissional": {
+    "id_profissional": "1",
+    "id_usuario": "2",
+    "cpf": "987.654.321-11",
+    "conselho": "CRM",
+    "registro_profissional": "123456-PE",
+    "uf_registro": "PE",
+    "ativo": true
+  },
+  "especialidade": {
+    "id_especialidade": "1",
+    "nome": "Cardiologia",
+    "descricao": "Especialidade focada em cardiologia clínica e preventiva.",
+    "ativo": true
+  }
+}
+
+
+### 36. Deletar Associação por IDs compostos
+DELETE {{baseUrl}}/profissional-especialidade/1/1
+
+
+
+
+
+
+
+### ========================================================================================================
+### ========================================================================================================
+### ========================================================================================================
+
+
+
+
+
+### ==========================================
+### MÓDULO: CLINICA_ESPECIALIDADE
+### ==========================================
+
+### 37. Associar Especialidade à Clínica
+POST {{baseUrl}}/clinica-especialidade
+Content-Type: application/json
+
+{
+  "id_clinica": 1,
+  "id_especialidade": 1
+}
+
+### 38. Listar Associações Clínica-Especialidade
+GET {{baseUrl}}/clinica-especialidade
+
+RETORNO
+HTTP/1.1 200 OK
+
+[
+  {
+    "id_clinica": "1",
+    "id_especialidade": "1",
+    "clinica": {
+      "id_clinica": "1",
+      "nome": "Clínica Saúde Central Recife",
+      "cnpj": "12.345.678/0001-99",
+      "telefone": "8133335555",
+      "email": "contato@saudecentral.com",
+      "logradouro": "Av. Boa Viagem",
+      "numero": "1000",
+      "bairro": "Boa Viagem",
+      "cidade": "Recife",
+      "estado": "Pernambuco",
+      "uf": "PE",
+      "ativo": true
+    },
+    "especialidade": {
+      "id_especialidade": "1",
+      "nome": "Cardiologia",
+      "descricao": "Especialidade focada em cardiologia clínica e preventiva.",
+      "ativo": true
+    }
+  }
+]
+
+
+### 39. Buscar Associação por IDs compostos (:idClinica/:idEspecialidade)
+GET {{baseUrl}}/clinica-especialidade/1/1
+
+RETORNO
+HTTP/1.1 200 OK
+
+
+{
+  "id_clinica": "1",
+  "id_especialidade": "1",
+  "clinica": {
+    "id_clinica": "1",
+    "nome": "Clínica Saúde Central Recife",
+    "cnpj": "12.345.678/0001-99",
+    "telefone": "8133335555",
+    "email": "contato@saudecentral.com",
+    "logradouro": "Av. Boa Viagem",
+    "numero": "1000",
+    "bairro": "Boa Viagem",
+    "cidade": "Recife",
+    "estado": "Pernambuco",
+    "uf": "PE",
+    "ativo": true
+  },
+  "especialidade": {
+    "id_especialidade": "1",
+    "nome": "Cardiologia",
+    "descricao": "Especialidade focada em cardiologia clínica e preventiva.",
+    "ativo": true
+  }
+}
+
+
+
+
+### 40. Deletar Associação por IDs compostos
+DELETE {{baseUrl}}/clinica-especialidade/1/1
+
+
+
+
+
+
+
+### ========================================================================================================
+### ========================================================================================================
+### ========================================================================================================
+
+
+
+
+
+
+
+### ==========================================
+### MÓDULO: DISPONIBILIDADE
+### ==========================================
+
+### 41. Cadastrar Nova Disponibilidade
+POST {{baseUrl}}/disponibilidades
+Content-Type: application/json
+
+{
+  "id_profissional_clinica": 1,
+  "data_atendimento": "2026-10-25",
+  "hora_inicio": "08:00:00",
+  "hora_fim": "12:00:00",
+  "duracao_minutos": 30,
+  "status": "DISPONIVEL"
+}
+
+### 42. Listar Todas as Disponibilidades
+GET {{baseUrl}}/disponibilidades
+
+RETORNO
+HTTP/1.1 200 OK
+
+[
+  {
+    "id_disponibilidade": "13",
+    "id_profissional_clinica": "1",
+    "data_atendimento": "2026-10-25",
+    "hora_inicio": "08:00:00",
+    "hora_fim": "12:00:00",
+    "duracao_minutos": 30,
+    "status": "DISPONIVEL",
+    "profissionalClinica": {
+      "id_profissional_clinica": "1",
+      "id_profissional": "1",
+      "id_clinica": "1",
+      "ativo": false
+    }
+  }
+]
+
+
+### 43. Buscar Disponibilidade por ID
+GET {{baseUrl}}/disponibilidades/13
+
+HTTP/1.1 200 OK
+
+{
+  "id_disponibilidade": "13",
+  "id_profissional_clinica": "1",
+  "data_atendimento": "2026-10-25",
+  "hora_inicio": "08:00:00",
+  "hora_fim": "12:00:00",
+  "duracao_minutos": 30,
+  "status": "DISPONIVEL",
+  "profissionalClinica": {
+    "id_profissional_clinica": "1",
+    "id_profissional": "1",
+    "id_clinica": "1",
+    "ativo": false
+  }
+}
+
+
+
+### 44. Atualizar Disponibilidade por ID
+PUT {{baseUrl}}/disponibilidades/12
+Content-Type: application/json
+
+{
+  "status": "BLOQUEADO"
+}
+
+### 45. Deletar Disponibilidade por ID
+DELETE {{baseUrl}}/disponibilidades/12
+
+
+
+
+
+
+### ========================================================================================================
+### ========================================================================================================
+### ========================================================================================================
+
+
+
+
+
+
+### ==========================================
+### MÓDULO: AGENDAMENTOS
+### ==========================================
+
+### 46. Criar Novo Agendamento
+POST {{baseUrl}}/agendamentos
+Content-Type: application/json
+
+{
+  "id_paciente": 2,
+  "id_profissional_clinica": 1,
+  "id_especialidade": 1,
+  "data_hora": "2026-10-25T08:20:00",
+  "status": "PENDENTE",
+  "observacao": "Primeira consulta de rotina."
+}
+
+### 47. Listar Todos os Agendamentos
+GET {{baseUrl}}/agendamentos
+
+RETORNO
+HTTP/1.1 200 OK
+
+[
+  {
+    "id_agendamento": "9",
+    "id_paciente": "1",
+    "id_profissional_clinica": "1",
+    "id_especialidade": "1",
+    "data_hora": "2026-10-25T11:00:00.000Z",
+    "status": "CONFIRMADO",
+    "observacao": "Primeira consulta de rotina.",
+    "criado_em": "2026-10-22T05:14:42.746Z",
+    "paciente": {
+      "id_paciente": "1",
+      "id_usuario": "1",
+      "cpf": "123.456.789-00",
+      "data_nascimento": "1995-05-15",
+      "sexo": "M",
+      "observacoes": null
+    },
+    "profissionalClinica": {
+      "id_profissional_clinica": "1",
+      "id_profissional": "1",
+      "id_clinica": "1",
+      "ativo": false
+    },
+    "especialidade": {
+      "id_especialidade": "1",
+      "nome": "Cardiologia",
+      "descricao": "Especialidade focada em cardiologia clínica e preventiva.",
+      "ativo": true
+    }
+  }
+]
+
+
+### 48. Buscar Agendamento por ID
+GET {{baseUrl}}/agendamentos/10
+
+RETORNO 
+HTTP/1.1 200 OK
+
+{
+  "id_agendamento": "10",
+  "id_paciente": "2",
+  "id_profissional_clinica": "1",
+  "id_especialidade": "1",
+  "data_hora": "2026-10-25T11:20:00.000Z",
+  "status": "PENDENTE",
+  "observacao": "Primeira consulta de rotina.",
+  "criado_em": "2026-10-22T05:16:19.688Z",
+  "paciente": {
+    "id_paciente": "2",
+    "id_usuario": "2",
+    "cpf": "222.456.789-00",
+    "data_nascimento": "1995-05-15",
+    "sexo": "F",
+    "observacoes": null
+  },
+  "profissionalClinica": {
+    "id_profissional_clinica": "1",
+    "id_profissional": "1",
+    "id_clinica": "1",
+    "ativo": false
+  },
+  "especialidade": {
+    "id_especialidade": "1",
+    "nome": "Cardiologia",
+    "descricao": "Especialidade focada em cardiologia clínica e preventiva.",
+    "ativo": true
+  }
+}
+
+
+### 49. Atualizar Agendamento por ID
+PUT {{baseUrl}}/agendamentos/1
+Content-Type: application/json
+
+{
+  "status": "CONCLUIDO"
+}
+
+### 50. Deletar Agendamento por ID
+DELETE {{baseUrl}}/agendamentos/1
